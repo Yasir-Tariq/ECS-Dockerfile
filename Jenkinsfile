@@ -13,12 +13,13 @@ pipeline {
         //    }
             steps {
                 script {
-                    withAWS(region:"${params.region}") {
-                        sh "docker build -t testimage ."  
-                        // sh "docker tag tweet:latest 020046395185.dkr.ecr.${params.region}.amazonaws.com/tweet:${GIT_COMMIT}"
-                        // sh "${env.token}"
-                        // sh "docker push 020046395185.dkr.ecr.${params.region}.amazonaws.com/tweet:${GIT_COMMIT}"
-                    }   
+                    docker.build("testimagee")
+                    // withAWS(region:"${params.region}") {
+                    //     sh "docker build -t testimage ."  
+                    //     // sh "docker tag tweet:latest 020046395185.dkr.ecr.${params.region}.amazonaws.com/tweet:${GIT_COMMIT}"
+                    //     // sh "${env.token}"
+                    //     // sh "docker push 020046395185.dkr.ecr.${params.region}.amazonaws.com/tweet:${GIT_COMMIT}"
+                    // }   
                 }
               } 
         }
